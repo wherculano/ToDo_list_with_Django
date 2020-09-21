@@ -1,7 +1,7 @@
 from django.shortcuts import render  # noqa
-from django.http import HttpResponse
+from django.http import HttpResponse  # noqa
 
 
 # Create your views here.
 def todoView(request):
-    return HttpResponse('This is my ToDoView')
+    return render(request, 'todo.html')
