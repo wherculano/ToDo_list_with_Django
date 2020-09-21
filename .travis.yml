@@ -1,0 +1,21 @@
+language: python
+dist: xenial
+sudo: true
+
+python:
+  - 3.8
+
+env:
+  global:
+    - PIPENV_VENV_IN_PROJECT=1
+    - PIPENV_IGONRE_VIRTUALENVS=1
+
+install:
+  - pip install pipenv
+  - pipenv sync -d
+
+script:
+  - pipenv run flake8 .
+  - pipenv run pytest --cov=mytodolist
+after_success:
+  - pipenv run codecov
