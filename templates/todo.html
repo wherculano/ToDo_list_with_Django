@@ -7,7 +7,7 @@
 <body>
 <h1>This is my To Do page</h1>
 <ul>
-    {% for todo_item in all_todo_items %}
+    {% for todo_item in all_items %}
     <li>{{ todo_item.content }}</li>
     <form action="/deleteTodo/{{todo_item.id}}/"
           style="display: inline;"
