@@ -8,7 +8,12 @@
     <h1>This is my To Do page</h1>
     <ul>
         {% for todo_item in all_todo_items %}
-        <li>{{ todo_item.content }}</li>
+            <li>{{ todo_item.content }}</li>
+                <form action="/deleteTodo/{{todo_item.id}}/"
+                      style="display: inline;"
+                      method="post">{% csrf_token %}
+                    <input type="submit" value="delete">
+                </form>
         {% endfor %}
     </ul>
     <form action="/addTodo/" method="post">{% csrf_token %}
